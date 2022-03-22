@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:landing_page/utils/url.dart';
+import 'package:landing_page/modules/home_module/widgets/custom_header_widget.dart';
 
 class MobileLayout extends StatefulWidget {
   const MobileLayout({Key? key}) : super(key: key);
@@ -19,20 +19,11 @@ class _MobileLayoutState extends State<MobileLayout> {
           color: Colors.black,
         ),
       ),
-      drawer: Drawer(
-        backgroundColor: Colors.blue.shade200,
+      drawer: const Drawer(
+        backgroundColor: Color.fromARGB(255, 7, 96, 134),
         child: Padding(
-          padding: const EdgeInsets.all(50),
-          child: Column(
-            children: const [
-              CircleAvatar(
-                backgroundImage: NetworkImage(profileImageUrl),
-                radius: 50,
-              ),
-              SizedBox(height: 50),
-              Text('Victor Henrique de Oliveira')
-            ],
-          ),
+          padding: EdgeInsets.all(50),
+          child: CustomHeaderWidget(),
         ),
       ),
     );

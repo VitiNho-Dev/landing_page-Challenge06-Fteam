@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:landing_page/utils/url.dart';
+import 'package:landing_page/modules/home_module/widgets/custom_header_widget.dart';
+import 'package:landing_page/theme/app_colors.dart';
 
 class CustomDrawerWidget extends StatelessWidget {
   const CustomDrawerWidget({Key? key}) : super(key: key);
@@ -9,17 +10,8 @@ class CustomDrawerWidget extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.all(30),
-      color: Colors.blue.shade200,
-      child: Column(
-        children: const [
-          CircleAvatar(
-            backgroundImage: NetworkImage(profileImageUrl),
-            radius: 50,
-          ),
-          SizedBox(height: 50),
-          Text('Victor Henrique de Oliveira')
-        ],
-      ),
+      color: AppColors.primaryColor,
+      child: const CustomHeaderWidget(),
     );
   }
 }
