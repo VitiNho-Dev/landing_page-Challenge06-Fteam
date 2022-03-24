@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:landing_page/modules/home_module/responsivity/mobile_layout.dart';
-import 'package:landing_page/modules/home_module/responsivity/web_layout.dart';
+import 'package:landing_page/modules/home_module/responsivity/mobile_layout/mobile_layout.dart';
+import 'package:landing_page/modules/home_module/responsivity/web_layout/web_layout.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -14,7 +14,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        if (constraints.maxWidth > constraints.maxHeight) {
+        if (constraints.maxWidth > 726) {
           return const WebLayout();
         } else {
           return const MobileLayout();

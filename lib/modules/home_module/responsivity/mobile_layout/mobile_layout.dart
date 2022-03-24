@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:landing_page/modules/home_module/widgets/custom_header_widget.dart';
+import 'package:landing_page/theme/app_colors.dart';
 
 class MobileLayout extends StatefulWidget {
   const MobileLayout({Key? key}) : super(key: key);
@@ -12,6 +13,7 @@ class _MobileLayoutState extends State<MobileLayout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.backgroundColor,
       appBar: AppBar(
         elevation: 0.0,
         backgroundColor: Colors.transparent,

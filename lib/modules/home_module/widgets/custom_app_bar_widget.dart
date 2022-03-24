@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:landing_page/modules/home_module/widgets/custom_header_widget.dart';
 import 'package:landing_page/theme/app_colors.dart';
 
-class CustomDrawerWidget extends StatelessWidget {
-  const CustomDrawerWidget({Key? key}) : super(key: key);
+class CustomAppBarWidget extends StatelessWidget
+    implements PreferredSizeWidget {
+  const CustomAppBarWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,4 +15,7 @@ class CustomDrawerWidget extends StatelessWidget {
       child: const CustomHeaderWidget(),
     );
   }
+
+  @override
+  Size get preferredSize => const Size(double.infinity, 150);
 }
