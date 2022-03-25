@@ -11,12 +11,14 @@ class CustomRepositoryPage extends StatefulWidget {
     required this.sobre,
     required this.images,
     required this.texts,
+    this.onPressed,
   }) : super(key: key);
 
   final String name;
   final String sobre;
   final List<String> images;
   final List<Text> texts;
+  final Function()? onPressed;
 
   @override
   State<CustomRepositoryPage> createState() => _CustomRepositoryPageState();
@@ -54,6 +56,7 @@ class _CustomRepositoryPageState extends State<CustomRepositoryPage> {
               height: size.height * 0.16,
               name: widget.name,
               sobre: widget.sobre,
+              onPressed: widget.onPressed,
             ),
           ),
           SizedBox(
