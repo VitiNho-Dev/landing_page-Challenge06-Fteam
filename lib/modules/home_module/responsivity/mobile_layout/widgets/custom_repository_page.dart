@@ -39,7 +39,6 @@ class _CustomRepositoryPageState extends State<CustomRepositoryPage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    TextStyle? textStyle = Theme.of(context).textTheme.bodyText1;
 
     return SingleChildScrollView(
       physics: const NeverScrollableScrollPhysics(),
