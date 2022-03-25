@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:landing_page/modules/home_module/widgets/custom_text_button_widget.dart';
 import 'package:landing_page/utils/url.dart';
 

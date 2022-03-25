@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:landing_page/modules/home_module/responsivity/mobile_layout/widgets/custom_repository_page.dart';
 import 'package:landing_page/modules/home_module/widgets/custom_app_bar_widget.dart';
 import 'package:landing_page/theme/app_colors.dart';
+import 'package:landing_page/utils/url.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MobileLayout extends StatefulWidget {
   const MobileLayout({Key? key}) : super(key: key);
@@ -31,6 +33,9 @@ class _MobileLayoutState extends State<MobileLayout> {
           controller: pageController,
           children: [
             CustomRepositoryPage(
+              onPressed: () async {
+                await launch(masterclassAppUrl);
+              },
               name: 'App Masterclass',
               sobre: 'Um app feito durante a Masterclass de Flutter iniciante.',
               images: const [
@@ -62,6 +67,9 @@ class _MobileLayoutState extends State<MobileLayout> {
               ],
             ),
             CustomRepositoryPage(
+              onPressed: () async {
+                await launch(movieAppUrl);
+              },
               name: 'Movie App',
               sobre: 'Quinto desafio da Fteam feito com Triple, Modular e Uno.',
               images: const [
@@ -93,6 +101,9 @@ class _MobileLayoutState extends State<MobileLayout> {
               ],
             ),
             CustomRepositoryPage(
+              onPressed: () async {
+                await launch(qlorianAppUrl);
+              },
               name: 'App Qlorian',
               sobre:
                   'Segundo desafio da Fteam concluído, utilizando Mascaras com Regex.',
