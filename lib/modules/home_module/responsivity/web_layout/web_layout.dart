@@ -16,9 +16,15 @@ class _WebLayoutState extends State<WebLayout> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    TextStyle? textStyle = Theme.of(context).textTheme.bodyText1;
+
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
-      appBar: const CustomAppBarWidget(),
+      appBar: CustomAppBarWidget(
+        heightSize: size.height * 0.2,
+        height: size.height * 0.06,
+        width: size.width * 0.06,
+      ),
       body: ListView(
         padding: const EdgeInsets.symmetric(
           horizontal: 50,
@@ -42,23 +48,23 @@ class _WebLayoutState extends State<WebLayout> {
             items: [
               Text(
                 'Dart',
-                style: Theme.of(context).textTheme.bodyText1,
+                style: textStyle,
               ),
               Text(
                 'Flutter',
-                style: Theme.of(context).textTheme.bodyText1,
+                style: textStyle,
               ),
               Text(
                 'ChangeNotifier',
-                style: Theme.of(context).textTheme.bodyText1,
+                style: textStyle,
               ),
               Text(
                 'ValueNotifier',
-                style: Theme.of(context).textTheme.bodyText1,
+                style: textStyle,
               ),
               Text(
                 'Dio',
-                style: Theme.of(context).textTheme.bodyText1,
+                style: textStyle,
               ),
             ],
           ),
@@ -84,23 +90,23 @@ class _WebLayoutState extends State<WebLayout> {
             items: [
               Text(
                 'Dart',
-                style: Theme.of(context).textTheme.bodyText1,
+                style: textStyle,
               ),
               Text(
                 'Flutter',
-                style: Theme.of(context).textTheme.bodyText1,
+                style: textStyle,
               ),
               Text(
                 'Modular',
-                style: Theme.of(context).textTheme.bodyText1,
+                style: textStyle,
               ),
               Text(
                 'Triple',
-                style: Theme.of(context).textTheme.bodyText1,
+                style: textStyle,
               ),
               Text(
                 'Uno',
-                style: Theme.of(context).textTheme.bodyText1,
+                style: textStyle,
               ),
             ],
           ),
@@ -112,8 +118,8 @@ class _WebLayoutState extends State<WebLayout> {
           CustomCardRepositoryWidget(
             size: size,
             image1: 'assets/images/Screenshot_20220324-151919.jpg',
-            image2: 'assets/images/Screenshot_20220324-152107.jpg',
-            image3: 'assets/images/Screenshot_20220324-152242.jpg',
+            image2: 'assets/images/Screenshot_20220324-152242.jpg',
+            image3: 'assets/images/Screenshot_20220324-152107.jpg',
             name: 'App Qlorian',
             sobre:
                 'Segundo desafio da Fteam concluído, utilizando Mascaras com Regex.',
@@ -127,15 +133,15 @@ class _WebLayoutState extends State<WebLayout> {
             items: [
               Text(
                 'Dart',
-                style: Theme.of(context).textTheme.bodyText1,
+                style: textStyle,
               ),
               Text(
                 'Flutter',
-                style: Theme.of(context).textTheme.bodyText1,
+                style: textStyle,
               ),
               Text(
                 'Regex',
-                style: Theme.of(context).textTheme.bodyText1,
+                style: textStyle,
               ),
             ],
           ),

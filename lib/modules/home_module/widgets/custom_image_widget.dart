@@ -19,12 +19,10 @@ class CustomImageWidget extends StatefulWidget {
 class _CustomImageWidgetState extends State<CustomImageWidget> {
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      child: Image.asset(
-        widget.name,
-        height: widget.height,
-        width: widget.width,
-      ),
+    return Image.asset(
+      widget.name,
+      height: widget.height,
+      width: widget.width,
     );
   }
 }

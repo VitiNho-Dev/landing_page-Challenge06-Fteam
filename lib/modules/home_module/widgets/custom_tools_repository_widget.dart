@@ -4,14 +4,17 @@ class CustomToolsRepositoryWidget extends StatelessWidget {
   const CustomToolsRepositoryWidget({
     Key? key,
     required this.texts,
+    required this.height,
   }) : super(key: key);
 
   final List<Text> texts;
+  final double height;
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.4,
+      height: height,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -19,7 +22,7 @@ class CustomToolsRepositoryWidget extends StatelessWidget {
             'Ferramentas Utilizadas',
             style: Theme.of(context).textTheme.headline5,
           ),
-          const SizedBox(height: 32),
+          SizedBox(height: size.height * 0.02),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: texts,

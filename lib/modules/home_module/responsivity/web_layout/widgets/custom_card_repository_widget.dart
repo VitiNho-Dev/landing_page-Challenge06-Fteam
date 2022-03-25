@@ -43,6 +43,7 @@ class CustomCardRepositoryWidget extends StatelessWidget {
         Expanded(
           flex: 2,
           child: CustomInformationReposiotryWidget(
+            height: size.height * 0.4,
             name: name,
             sobre: sobre,
             onPressed: onPressed,
@@ -51,6 +52,7 @@ class CustomCardRepositoryWidget extends StatelessWidget {
         const SizedBox(width: 16),
         Expanded(
           child: CustomToolsRepositoryWidget(
+            height: size.height * 0.4,
             texts: items,
           ),
         ),
