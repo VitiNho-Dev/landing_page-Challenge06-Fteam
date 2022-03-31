@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:landing_page/modules/home_module/responsivity/mobile_layout/widgets/custom_repository_page.dart';
+import 'package:landing_page/modules/home_module/responsivity/web_layout/apps_information/app_information.dart';
 import 'package:landing_page/modules/home_module/widgets/custom_app_bar_widget.dart';
 import 'package:landing_page/theme/app_colors.dart';
-import 'package:landing_page/utils/url.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MobileLayout extends StatefulWidget {
@@ -19,6 +19,7 @@ class _MobileLayoutState extends State<MobileLayout> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     TextStyle? textStyle = Theme.of(context).textTheme.bodyText1;
+    final information = appInformation;
 
     return SafeArea(
       child: Scaffold(
@@ -28,140 +29,37 @@ class _MobileLayoutState extends State<MobileLayout> {
           height: size.height * 0.06,
           width: size.width * 0.06,
         ),
-        body: PageView(
+        body: PageView.builder(
           scrollDirection: Axis.vertical,
           controller: pageController,
-          children: [
-            CustomRepositoryPage(
+          itemCount: information.length,
+          itemBuilder: (context, index) {
+            final values = information[index];
+            return CustomRepositoryPage(
+              name: values['name'].toString(),
+              sobre: values['sobre'].toString(),
+              images: [
+                values['image1'].toString(),
+                values['image2'].toString(),
+                values['image3'].toString(),
+              ],
               onPressed: () async {
-                await launch(masterclassAppUrl);
+                await launch(values['onPressed'].toString());
               },
-              name: 'App Masterclass',
-              sobre: 'Um app feito durante a Masterclass de Flutter iniciante.',
-              images: const [
-                'assets/images/Screenshot_20220324-154709.jpg',
-                'assets/images/Screenshot_20220324-154730.jpg',
-                'assets/images/Screenshot_20220324-154758.jpg',
-              ],
-              texts: [
-                Text(
-                  'Dart',
-                  style: textStyle,
-                ),
-                Text(
-                  'Flutter',
-                  style: textStyle,
-                ),
-                Text(
-                  'ChangeNotifier',
-                  style: textStyle,
-                ),
-                Text(
-                  'ValueNotifier',
-                  style: textStyle,
-                ),
-                Text(
-                  'Dio',
-                  style: textStyle,
-                ),
-              ],
-            ),
-            CustomRepositoryPage(
-              onPressed: () async {
-                await launch(movieAppUrl);
-              },
-              name: 'Movie App',
-              sobre: 'Quinto desafio da Fteam feito com Triple, Modular e Uno.',
-              images: const [
-                'assets/images/Screenshot_20220324-110907.jpg',
-                'assets/images/Screenshot_20220324-110957.jpg',
-                'assets/images/Screenshot_20220324-110937.jpg',
-              ],
-              texts: [
-                Text(
-                  'Dart',
-                  style: textStyle,
-                ),
-                Text(
-                  'Flutter',
-                  style: textStyle,
-                ),
-                Text(
-                  'Modular',
-                  style: textStyle,
-                ),
-                Text(
-                  'Triple',
-                  style: textStyle,
-                ),
-                Text(
-                  'Uno',
-                  style: textStyle,
-                ),
-              ],
-            ),
-            CustomRepositoryPage(
-              onPressed: () async {
-                await launch(qlorianAppUrl);
-              },
-              name: 'App Qlorian',
-              sobre:
-                  'Segundo desafio da Fteam concluído, utilizando Mascaras com Regex.',
-              images: const [
-                'assets/images/Screenshot_20220324-151919.jpg',
-                'assets/images/Screenshot_20220324-152242.jpg',
-                'assets/images/Screenshot_20220324-152107.jpg',
-              ],
-              texts: [
-                Text(
-                  'Dart',
-                  style: textStyle,
-                ),
-                Text(
-                  'Flutter',
-                  style: textStyle,
-                ),
-                Text(
-                  'Regex',
-                  style: textStyle,
-                ),
-              ],
-            ),
-            CustomRepositoryPage(
-              onPressed: () async {
-                await launch(qlorianAppUrl);
-              },
-              name: 'Weather Forecast App',
-              sobre: 'Terceiro desafio da Fteam feito com Bloc, Modular e Dio.',
-              images: const [
-                'assets/images/Screenshot_20220331-134011.jpg',
-                'assets/images/Screenshot_20220331-133759.jpg',
-                'assets/images/Screenshot_20220331-133857.jpg',
-              ],
-              texts: [
-                Text(
-                  'Dart',
-                  style: textStyle,
-                ),
-                Text(
-                  'Flutter',
-                  style: textStyle,
-                ),
-                Text(
-                  'Bloc',
-                  style: textStyle,
-                ),
-                Text(
-                  'Modular',
-                  style: textStyle,
-                ),
-                Text(
-                  'Dio',
-                  style: textStyle,
-                ),
-              ],
-            ),
-          ],
+              texts: ListView.builder(
+                itemCount: (values['text'] as List).length,
+                shrinkWrap: true,
+                itemBuilder: (context, count) {
+                  var text = values['text'] as List;
+                  var value = text[count].toString();
+                  return Text(
+                    value,
+                    style: textStyle,
+                  );
+                },
+              ),
+            );
+          },
         ),
       ),
     );

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:landing_page/modules/home_module/responsivity/web_layout/apps_information/app_information.dart';
 import 'package:landing_page/modules/home_module/widgets/custom_app_bar_widget.dart';
 import 'package:landing_page/modules/home_module/responsivity/web_layout/widgets/custom_card_repository_widget.dart';
 import 'package:landing_page/theme/app_colors.dart';
-import 'package:landing_page/utils/url.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class WebLayout extends StatefulWidget {
@@ -17,6 +17,7 @@ class _WebLayoutState extends State<WebLayout> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     TextStyle? textStyle = Theme.of(context).textTheme.bodyText1;
+    final information = appInformation;
 
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
@@ -25,173 +26,52 @@ class _WebLayoutState extends State<WebLayout> {
         height: size.height * 0.06,
         width: size.width * 0.06,
       ),
-      body: ListView(
+      body: ListView.builder(
         padding: const EdgeInsets.symmetric(
           horizontal: 50,
           vertical: 100,
         ),
-        children: [
-          CustomCardRepositoryWidget(
-            size: size,
-            image1: 'assets/images/Screenshot_20220324-154709.jpg',
-            image2: 'assets/images/Screenshot_20220324-154730.jpg',
-            image3: 'assets/images/Screenshot_20220324-154758.jpg',
-            name: 'App Masterclass',
-            sobre: 'Um app feito durante a Masterclass de Flutter iniciante.',
-            onPressed: () async {
-              if (await canLaunch(masterclassAppUrl)) {
-                await launch(masterclassAppUrl);
-              } else {
-                throw 'Could not launch Maps';
-              }
-            },
-            items: [
-              Text(
-                'Dart',
-                style: textStyle,
+        shrinkWrap: true,
+        itemCount: information.length,
+        itemBuilder: (context, index) {
+          final values = information[index];
+          return Column(
+            children: [
+              const SizedBox(height: 32),
+              CustomCardRepositoryWidget(
+                size: size,
+                name: values['name'].toString(),
+                sobre: values['sobre'].toString(),
+                image1: values['image1'].toString(),
+                image2: values['image2'].toString(),
+                image3: values['image3'].toString(),
+                onPressed: () async {
+                  if (await canLaunch(values['onPressed'].toString())) {
+                    await launch(values['onPressed'].toString());
+                  } else {
+                    throw 'Could not launch Maps';
+                  }
+                },
+                items: ListView.builder(
+                  itemCount: (values['text'] as List).length,
+                  shrinkWrap: true,
+                  itemBuilder: (context, count) {
+                    var text = values['text'] as List;
+                    var value = text[count].toString();
+                    return Text(
+                      value,
+                      style: textStyle,
+                    );
+                  },
+                ),
               ),
-              Text(
-                'Flutter',
-                style: textStyle,
-              ),
-              Text(
-                'ChangeNotifier',
-                style: textStyle,
-              ),
-              Text(
-                'ValueNotifier',
-                style: textStyle,
-              ),
-              Text(
-                'Dio',
-                style: textStyle,
-              ),
-            ],
-          ),
-          const SizedBox(height: 32),
-          Divider(
-            color: AppColors.textColor.withOpacity(0.5),
-          ),
-          const SizedBox(height: 32),
-          CustomCardRepositoryWidget(
-            size: size,
-            image1: 'assets/images/Screenshot_20220324-110907.jpg',
-            image2: 'assets/images/Screenshot_20220324-110957.jpg',
-            image3: 'assets/images/Screenshot_20220324-110937.jpg',
-            name: 'Movie App',
-            sobre: 'Quinto desafio da Fteam feito com Triple, Modular e Uno.',
-            onPressed: () async {
-              if (await canLaunch(movieAppUrl)) {
-                await launch(movieAppUrl);
-              } else {
-                throw 'Could not launch Maps';
-              }
-            },
-            items: [
-              Text(
-                'Dart',
-                style: textStyle,
-              ),
-              Text(
-                'Flutter',
-                style: textStyle,
-              ),
-              Text(
-                'Modular',
-                style: textStyle,
-              ),
-              Text(
-                'Triple',
-                style: textStyle,
-              ),
-              Text(
-                'Uno',
-                style: textStyle,
+              const SizedBox(height: 32),
+              Divider(
+                color: AppColors.textColor.withOpacity(0.5),
               ),
             ],
-          ),
-          const SizedBox(height: 32),
-          Divider(
-            color: AppColors.textColor.withOpacity(0.5),
-          ),
-          const SizedBox(height: 32),
-          CustomCardRepositoryWidget(
-            size: size,
-            image1: 'assets/images/Screenshot_20220324-151919.jpg',
-            image2: 'assets/images/Screenshot_20220324-152242.jpg',
-            image3: 'assets/images/Screenshot_20220324-152107.jpg',
-            name: 'App Qlorian',
-            sobre:
-                'Segundo desafio da Fteam concluído, utilizando Mascaras com Regex.',
-            onPressed: () async {
-              if (await canLaunch(qlorianAppUrl)) {
-                await launch(qlorianAppUrl);
-              } else {
-                throw 'Could not launch Maps';
-              }
-            },
-            items: [
-              Text(
-                'Dart',
-                style: textStyle,
-              ),
-              Text(
-                'Flutter',
-                style: textStyle,
-              ),
-              Text(
-                'Regex',
-                style: textStyle,
-              ),
-            ],
-          ),
-          const SizedBox(height: 32),
-          Divider(
-            color: AppColors.textColor.withOpacity(0.5),
-          ),
-          const SizedBox(height: 32),
-          CustomCardRepositoryWidget(
-            size: size,
-            image1: 'assets/images/Screenshot_20220331-134011.jpg',
-            image2: 'assets/images/Screenshot_20220331-133759.jpg',
-            image3: 'assets/images/Screenshot_20220331-133857.jpg',
-            name: 'Weather Forecast App',
-            sobre: 'Terceiro desafio da Fteam feito com Bloc, Modular e Dio.',
-            onPressed: () async {
-              if (await canLaunch(weatherForecastApp)) {
-                await launch(weatherForecastApp);
-              } else {
-                throw 'Could not launch Maps';
-              }
-            },
-            items: [
-              Text(
-                'Dart',
-                style: textStyle,
-              ),
-              Text(
-                'Flutter',
-                style: textStyle,
-              ),
-              Text(
-                'Bloc',
-                style: textStyle,
-              ),
-              Text(
-                'Modular',
-                style: textStyle,
-              ),
-              Text(
-                'Dio',
-                style: textStyle,
-              ),
-            ],
-          ),
-          const SizedBox(height: 32),
-          Divider(
-            color: AppColors.textColor.withOpacity(0.5),
-          ),
-        ],
+          );
+        },
       ),
     );
   }

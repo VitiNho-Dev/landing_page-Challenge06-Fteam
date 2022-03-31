@@ -7,7 +7,7 @@ class CustomToolsRepositoryWidget extends StatelessWidget {
     required this.height,
   }) : super(key: key);
 
-  final List<Text> texts;
+  final Widget texts;
   final double height;
 
   @override
@@ -23,10 +23,7 @@ class CustomToolsRepositoryWidget extends StatelessWidget {
             style: Theme.of(context).textTheme.headline5,
           ),
           SizedBox(height: size.height * 0.02),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: texts,
-          ),
+          texts,
         ],
       ),
     );

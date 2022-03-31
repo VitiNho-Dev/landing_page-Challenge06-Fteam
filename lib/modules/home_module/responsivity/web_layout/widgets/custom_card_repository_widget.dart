@@ -24,7 +24,7 @@ class CustomCardRepositoryWidget extends StatelessWidget {
   final String name;
   final String sobre;
   final void Function()? onPressed;
-  final List<Text> items;
+  final ListView items;
 
   @override
   Widget build(BuildContext context) {

@@ -17,7 +17,7 @@ class CustomRepositoryPage extends StatefulWidget {
   final String name;
   final String sobre;
   final List<String> images;
-  final List<Text> texts;
+  final ListView texts;
   final Function()? onPressed;
 
   @override
