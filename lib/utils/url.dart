@@ -6,3 +6,5 @@ const movieAppUrl =
 const qlorianAppUrl =
     'https://github.com/VitiNho-Dev/app_qlorian-Challenge02-Fteam';
 const masterclassAppUrl = 'https://github.com/VitiNho-Dev/appmasterclass';
+const weatherForecastApp =
+    'https://github.com/VitiNho-Dev/weather_forecast_bloc_app-Challenge03-Fteam';

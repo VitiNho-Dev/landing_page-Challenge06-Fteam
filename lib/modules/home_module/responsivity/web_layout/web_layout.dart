@@ -149,6 +149,48 @@ class _WebLayoutState extends State<WebLayout> {
           Divider(
             color: AppColors.textColor.withOpacity(0.5),
           ),
+          const SizedBox(height: 32),
+          CustomCardRepositoryWidget(
+            size: size,
+            image1: 'assets/images/Screenshot_20220331-134011.jpg',
+            image2: 'assets/images/Screenshot_20220331-133759.jpg',
+            image3: 'assets/images/Screenshot_20220331-133857.jpg',
+            name: 'Weather Forecast App',
+            sobre: 'Terceiro desafio da Fteam feito com Bloc, Modular e Dio.',
+            onPressed: () async {
+              if (await canLaunch(weatherForecastApp)) {
+                await launch(weatherForecastApp);
+              } else {
+                throw 'Could not launch Maps';
+              }
+            },
+            items: [
+              Text(
+                'Dart',
+                style: textStyle,
+              ),
+              Text(
+                'Flutter',
+                style: textStyle,
+              ),
+              Text(
+                'Bloc',
+                style: textStyle,
+              ),
+              Text(
+                'Modular',
+                style: textStyle,
+              ),
+              Text(
+                'Dio',
+                style: textStyle,
+              ),
+            ],
+          ),
+          const SizedBox(height: 32),
+          Divider(
+            color: AppColors.textColor.withOpacity(0.5),
+          ),
         ],
       ),
     );

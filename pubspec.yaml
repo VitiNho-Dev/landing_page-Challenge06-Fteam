@@ -63,15 +63,7 @@ flutter:
   assets:
     - assets/icons/linkedin.png
     - assets/icons/github.png
-    - assets/images/Screenshot_20220324-110907.jpg
-    - assets/images/Screenshot_20220324-110937.jpg
-    - assets/images/Screenshot_20220324-110957.jpg
-    - assets/images/Screenshot_20220324-151919.jpg
-    - assets/images/Screenshot_20220324-152107.jpg
-    - assets/images/Screenshot_20220324-152242.jpg
-    - assets/images/Screenshot_20220324-154709.jpg
-    - assets/images/Screenshot_20220324-154730.jpg
-    - assets/images/Screenshot_20220324-154758.jpg
+    - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

@@ -127,6 +127,40 @@ class _MobileLayoutState extends State<MobileLayout> {
                 ),
               ],
             ),
+            CustomRepositoryPage(
+              onPressed: () async {
+                await launch(qlorianAppUrl);
+              },
+              name: 'Weather Forecast App',
+              sobre: 'Terceiro desafio da Fteam feito com Bloc, Modular e Dio.',
+              images: const [
+                'assets/images/Screenshot_20220331-134011.jpg',
+                'assets/images/Screenshot_20220331-133759.jpg',
+                'assets/images/Screenshot_20220331-133857.jpg',
+              ],
+              texts: [
+                Text(
+                  'Dart',
+                  style: textStyle,
+                ),
+                Text(
+                  'Flutter',
+                  style: textStyle,
+                ),
+                Text(
+                  'Bloc',
+                  style: textStyle,
+                ),
+                Text(
+                  'Modular',
+                  style: textStyle,
+                ),
+                Text(
+                  'Dio',
+                  style: textStyle,
+                ),
+              ],
+            ),
           ],
         ),
       ),
